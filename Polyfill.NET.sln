@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Polyfill.NET.RecordsTests",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DF174A07-ED6C-476A-89D8-8C45ECE89AA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polyfill.NET.Ranges", "src\Polyfill.NET.Ranges\Polyfill.NET.Ranges.csproj", "{935EB602-A5E7-4588-915D-663F15993AC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Polyfill.NET.Ranges", "src\Polyfill.NET.Ranges\Polyfill.NET.Ranges.csproj", "{935EB602-A5E7-4588-915D-663F15993AC6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Polyfill.NET.RangesTests", "test\Polyfill.NET.RangesTests\Polyfill.NET.RangesTests.csproj", "{3E80AC9E-DD0F-4849-AA68-660C7C754AD5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F8E4F3F1-5EC2-4193-B680-EFDA00F54FBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,14 +61,29 @@ Global
 		{935EB602-A5E7-4588-915D-663F15993AC6}.Release|x64.Build.0 = Release|Any CPU
 		{935EB602-A5E7-4588-915D-663F15993AC6}.Release|x86.ActiveCfg = Release|Any CPU
 		{935EB602-A5E7-4588-915D-663F15993AC6}.Release|x86.Build.0 = Release|Any CPU
+		{3E80AC9E-DD0F-4849-AA68-660C7C754AD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E80AC9E-DD0F-4849-AA68-660C7C754AD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E80AC9E-DD0F-4849-AA68-660C7C754AD5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3E80AC9E-DD0F-4849-AA68-660C7C754AD5}.Debug|x64.Build.0 = Debug|Any CPU
+		{3E80AC9E-DD0F-4849-AA68-660C7C754AD5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3E80AC9E-DD0F-4849-AA68-660C7C754AD5}.Debug|x86.Build.0 = Debug|Any CPU
+		{3E80AC9E-DD0F-4849-AA68-660C7C754AD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E80AC9E-DD0F-4849-AA68-660C7C754AD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E80AC9E-DD0F-4849-AA68-660C7C754AD5}.Release|x64.ActiveCfg = Release|Any CPU
+		{3E80AC9E-DD0F-4849-AA68-660C7C754AD5}.Release|x64.Build.0 = Release|Any CPU
+		{3E80AC9E-DD0F-4849-AA68-660C7C754AD5}.Release|x86.ActiveCfg = Release|Any CPU
+		{3E80AC9E-DD0F-4849-AA68-660C7C754AD5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2335F6E7-8F6D-41AF-9F7F-30B50DD22809} = {DF174A07-ED6C-476A-89D8-8C45ECE89AA7}
+		{5ACC18B1-9330-456A-B187-9FF757B38C95} = {F8E4F3F1-5EC2-4193-B680-EFDA00F54FBE}
+		{935EB602-A5E7-4588-915D-663F15993AC6} = {DF174A07-ED6C-476A-89D8-8C45ECE89AA7}
+		{3E80AC9E-DD0F-4849-AA68-660C7C754AD5} = {F8E4F3F1-5EC2-4193-B680-EFDA00F54FBE}
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2D4A8EBF-CB94-41CE-B31E-19FA8EB94A6C}
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{935EB602-A5E7-4588-915D-663F15993AC6} = {DF174A07-ED6C-476A-89D8-8C45ECE89AA7}
 	EndGlobalSection
 EndGlobal

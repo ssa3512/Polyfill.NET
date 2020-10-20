@@ -1,6 +1,16 @@
 #if NETSTANDARD2_0
 // https://github.com/dotnet/corefx/blob/1597b894a2e9cac668ce6e484506eca778a85197/src/Common/src/CoreLib/System/Range.cs
 
+using Microsoft.CodeAnalysis;
+
+namespace Polyfill.NET.Ranges
+{
+    [Generator]
+    public class RangeGenerator : ISourceGenerator
+    {
+        public void Execute(GeneratorExecutionContext context)
+        {
+            var source = @"
 using System.Runtime.CompilerServices;
 
 namespace System
@@ -23,8 +33,8 @@ namespace System
         public Index End { get; }
 
         /// <summary>Construct a Range object using the start and end indexes.</summary>
-        /// <param name="start">Represent the inclusive start index of the range.</param>
-        /// <param name="end">Represent the exclusive end index of the range.</param>
+        /// <param name=""start"">Represent the inclusive start index of the range.</param>
+        /// <param name=""end"">Represent the exclusive end index of the range.</param>
         public Range(Index start, Index end)
         {
             Start = start;
@@ -32,14 +42,14 @@ namespace System
         }
 
         /// <summary>Indicates whether the current Range object is equal to another object of the same type.</summary>
-        /// <param name="value">An object to compare with this object</param>
+        /// <param name=""value"">An object to compare with this object</param>
         public override bool Equals(object value) =>
             value is Range r &&
             r.Start.Equals(Start) &&
             r.End.Equals(End);
 
         /// <summary>Indicates whether the current Range object is equal to another Range object.</summary>
-        /// <param name="other">An object to compare with this object</param>
+        /// <param name=""other"">An object to compare with this object</param>
         public bool Equals(Range other) => other.Start.Equals(Start) && other.End.Equals(End);
 
         /// <summary>Returns the hash code for this instance.</summary>
@@ -51,7 +61,7 @@ namespace System
         /// <summary>Converts the value of the current Range object to its equivalent string representation.</summary>
         public override string ToString()
         {
-            return Start + ".." + End;
+            return Start + "".."" + End;
         }
 
         /// <summary>Create a Range object starting from start index to the end of the collection.</summary>
@@ -64,7 +74,7 @@ namespace System
         public static Range All => new Range(Index.Start, Index.End);
 
         /// <summary>Calculate the start offset and length of range object using a collection length.</summary>
-        /// <param name="length">The length of the collection that the range will be used with. length has to be a positive value.</param>
+        /// <param name=""length"">The length of the collection that the range will be used with. length has to be a positive value.</param>
         /// <remarks>
         /// For performance reason, we don't validate the input length parameter against negative values.
         /// It is expected Range will be used with collections which always have non negative length/count.
@@ -93,6 +103,15 @@ namespace System
             }
 
             return (start, end - start);
+        }
+    }
+}
+";
+            context.AddSource("Polyfill.NET.Ranges.Range", source);
+        }
+
+        public void Initialize(GeneratorInitializationContext context)
+        {
         }
     }
 }

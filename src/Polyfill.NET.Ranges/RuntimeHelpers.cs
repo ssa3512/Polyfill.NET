@@ -1,5 +1,15 @@
 #if NETSTANDARD2_0
 
+using Microsoft.CodeAnalysis;
+
+namespace Polyfill.NET.Ranges
+{
+    [Generator]
+    public class RuntimeHelpersGenerator : ISourceGenerator
+    {
+        public void Execute(GeneratorExecutionContext context)
+        {
+            var source = @"
 namespace System.Runtime.CompilerServices
 {
     internal static class RuntimeHelpers
@@ -7,7 +17,7 @@ namespace System.Runtime.CompilerServices
         /// <summary>
         /// Slices the specified array using the specified range.
         /// </summary>
-        public static T[] GetSubArray<T>(T[] array, Range range)
+        internal static T[] GetSubArray<T>(T[] array, Range range)
         {
             if (array == null)
             {
@@ -36,6 +46,15 @@ namespace System.Runtime.CompilerServices
                 Array.Copy(array, offset, dest, 0, length);
                 return dest;
             }
+        }
+    }
+}
+";
+            context.AddSource("Polyfill.NET.Ranges.RuntimeHelpers", source);
+        }
+
+        public void Initialize(GeneratorInitializationContext context)
+        {
         }
     }
 }
